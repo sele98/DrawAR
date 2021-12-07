@@ -254,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
@@ -749,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 7
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
@@ -1029,7 +1029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 6
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
@@ -2177,7 +2177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 4
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
@@ -2506,7 +2506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 3
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
@@ -2810,7 +2810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 5
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
@@ -3127,7 +3127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
@@ -3614,7 +3614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 8
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e77b91a85a1c844aee31efd81859a2, type: 3}

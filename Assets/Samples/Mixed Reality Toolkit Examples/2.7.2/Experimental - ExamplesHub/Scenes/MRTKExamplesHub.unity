@@ -374,7 +374,7 @@ MonoBehaviour:
     Name: MRTKExamplesHubMainMenu
     Path: Assets/Samples/Mixed Reality Toolkit Examples/2.7.2/Experimental - ExamplesHub/Scenes/MRTKExamplesHubMainMenu.unity
     Included: 1
-    BuildIndex: 0
+    BuildIndex: -1
     Tag: Untagged
     Asset: {fileID: 102900000, guid: 63a00118e809c754f9c7911bb85d635f, type: 3}
   loadOnStartup: 1
@@ -576,7 +576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8523790947019407673, guid: 3b812638595c9fd48adef6d6ec90b2aa, type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b812638595c9fd48adef6d6ec90b2aa, type: 3}
