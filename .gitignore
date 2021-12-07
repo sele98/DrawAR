@@ -54,10 +54,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
-# Crashlytics generated file
-crashlytics-build.properties
-<<<<<<< HEAD
-
-=======
->>>>>>> 0be541c (Initial commit)
