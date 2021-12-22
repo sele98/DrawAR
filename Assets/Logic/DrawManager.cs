@@ -12,10 +12,20 @@ namespace Assets.Logic
     {
         [SerializeField] private ColorManager _colorManager;
 
+        [Header("Line Renderer configuration")]
         [SerializeField] private float _lineWidth = 0.05f;
         [SerializeField] private Color _color = Color.white;
         [SerializeField] private float _minDistanceTreshold = 0.01f;
         [SerializeField] Material _lineMaterial;
+
+        [SerializeField] private GameObject MainCanvas;
+
+        [Header("HandMenu")]
+        [SerializeField] private GameObject MainHandMenu;
+        [SerializeField] private GameObject DrawHandMenu;
+        [SerializeField] private GameObject PauseButton;
+        [SerializeField] private GameObject UnpauseButton;
+
 
         public Handedness myHandedness;
         private MixedRealityPose jointPose;
@@ -23,6 +33,9 @@ namespace Assets.Logic
         private GameObject _parentContainer;
 
         private bool _canDraw = false;
+        private bool _drawPaused = false;
+        private bool _drawPausedExplicitly = false;
+
         private Vector3 _prevPointDistance = Vector3.zero;
         private LineRenderer _currentLineRenderer;
         private LineRenderer _prevLineRenderer;
@@ -31,13 +44,14 @@ namespace Assets.Logic
 
         private void Update()
         {
-            if (_canDraw)
+            if (_canDraw && !_drawPaused && !_drawPausedExplicitly)
             {
                 if (HandJointUtils.TryGetJointPose(TrackedHandJoint.IndexTip, myHandedness, out jointPose))
                 {
                     if (_parentContainer == null)
                     {
                         _parentContainer = new GameObject("Canvas");
+                        _parentContainer.transform.SetParent(MainCanvas.transform);
                     }
 
                     if (_prevLineRenderer == null)
@@ -64,34 +78,93 @@ namespace Assets.Logic
             _positionCount = 0;
         }
 
+        public void PauseDraw()
+        {
+            _drawPaused = true;
+
+            ResetLineRendererStates();
+        }
+
+        public void UnpauseDraw()
+        {
+            _drawPaused = false;
+
+            DrawHandMenu.GetComponentInChildren<GridObjectCollection>().UpdateCollection();
+        }
+
+        public void PauseDrawExplicitly()
+        {
+            _drawPausedExplicitly = true;
+
+            UnpauseButton.SetActive(true);
+            PauseButton.SetActive(false);
+
+            DrawHandMenu.GetComponentInChildren<GridObjectCollection>().UpdateCollection();
+
+            ResetLineRendererStates();
+        }
+
+        public void UnpauseDrawExplicitly()
+        {
+            _drawPausedExplicitly = false;
+
+            UnpauseButton.SetActive(false);
+            PauseButton.SetActive(true);
+
+            DrawHandMenu.GetComponentInChildren<GridObjectCollection>().UpdateCollection();
+        }
+
+
         public bool GetCanDraw()
         {
             return _canDraw;
         }
 
-        public void EnableDraw()
+        public void StartDraw()
         {
+            DrawHandMenu.SetActive(true);
+            MainHandMenu.SetActive(false);
+
             _canDraw = true;
         }
 
-        public void DisableDraw()
+        public void EndDraw()
         {
             ResetLineRendererStates();
             _parentContainer = null;
             _canDraw = false;
+
+            DrawHandMenu.SetActive(false);
+            MainHandMenu.SetActive(true);
         }
 
-        public void SaveDrawing(string drawingName = "temp")
+        //public void SaveDrawing(string drawingName = "temp")
+        //{
+        //    if (_parentContainer != null)
+        //    {
+        //        _parentContainer.name = drawingName;
+        //    }
+        //}
+
+        //public void LoadDrawing(string drawingName)
+        //{
+        //    //Instantiate(PrefabUtility.LoadPrefabContents(drawingName));
+        //}
+
+        public void ClearCanvas()
         {
-            if (_parentContainer != null)
+            foreach (Transform child in MainCanvas.transform)
             {
-                _parentContainer.name = drawingName;
+                Destroy(child.gameObject);
             }
         }
 
-        public void LoadDrawing(string drawingName)
+        public void RestartCurrent()
         {
-            //Instantiate(PrefabUtility.LoadPrefabContents(drawingName));
+            foreach (Transform lines in _parentContainer.transform)
+            {
+                Destroy(lines.gameObject);
+            }
         }
 
         private void AddNewLineRenderer(Vector3 penPosition)
